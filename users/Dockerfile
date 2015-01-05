@@ -4,5 +4,6 @@ RUN adduser -D -g "Sinopia" sinopia
 USER sinopia
 VOLUME /opt/sinopia
 ADD /users.sh /tmp/users.sh
+WORKDIR /opt/sinopia
 
 CMD ["sh", "/tmp/users.sh"]
