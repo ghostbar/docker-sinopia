@@ -1,0 +1,32 @@
+storage: ./storage
+
+users:
+
+web:
+  enable: false
+  title: Sinopia
+  # logo: logo.png
+
+auth:
+  htpasswd:
+    file: ./htpasswd
+
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+    timeout: 30s
+    maxage: 120m
+    max_fails: 24
+    fail_timeout: 5m
+
+packages:
+  '*':
+    allow_access: $all
+    allow_publish: admin
+    proxy: npmjs
+
+listen: 0.0.0.0:4873
+
+logs:
+  - {type: stdout, format: pretty, level: http}
+  #- {type: file, path: sinopia.log, level: info}
